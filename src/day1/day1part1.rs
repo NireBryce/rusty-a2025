@@ -16,7 +16,7 @@ fn parse_direction(command: &str) -> Result<i16, String> {
 }
 
 pub fn d1p1() -> io::Result<()> {
-    let commands = read_lines("src/day1/day1input.txt")?;
+    let commands = read_lines("day1/day1input.txt")?;
     let mut dial: i16 = 50;
     let mut password_counter = 0;
 
@@ -26,6 +26,7 @@ pub fn d1p1() -> io::Result<()> {
             Ok(instruction) => {
                 dial += instruction;
                 dial = dial.rem_euclid(100);
+                println!("dial: {}", &dial);
                 if dial == 0 {
                     password_counter += 1;
                 }
