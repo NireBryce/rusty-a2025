@@ -1,4 +1,4 @@
-use crate::util::read_lines;
+use crate::util::inputs::read_lines;
 use std::io;
 
 fn parse_direction(command: &str) -> Result<i16, String> {
@@ -24,7 +24,7 @@ pub fn d1p1() -> io::Result<()> {
         let cmd = command?;
         match parse_direction(&cmd) {
             Ok(instruction) => {
-                dial = dial + instruction;
+                dial += instruction;
                 dial = dial.rem_euclid(100);
                 if dial == 0 {
                     password_counter += 1;
